@@ -1,0 +1,26 @@
+.div{
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heroText{
+    font-family: 'Poppins', sans-serif;
+    color: blue;
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.searchBar{
+    border-radius: 50px;
+    width: 400px;
+    height: 30px;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.form{
+    display: flex;
+    gap: 20px;
+}
