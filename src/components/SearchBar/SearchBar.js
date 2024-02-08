@@ -6,7 +6,7 @@ function SearchBar(){
         <div className={styles.div}>
             <h2 className={styles.heroText} id="heroText">Playlists Made Easy.</h2>
             <form className={styles.form} action="#" id="search">
-                <input className={styles.searchBar} type="text" id="searchBar" placeholder="Song Title" />
+                <input className={styles.searchBar} type="text" id="searchBar" placeholder="Song Title/Artist/Album" />
                 <button className={styles.searchButton} id="searchButton">Search Songs</button>
             </form>
         </div>

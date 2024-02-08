@@ -13,8 +13,12 @@
     line-height: 30px;
 }
 
-.artist{
+.artist, .album{
     font-family: 'Work Sans', sans-serif;
+}
+
+.album{
+    font-style: italic;
 }
 
 .button{
@@ -28,4 +32,9 @@
     font-weight: 700;
     font-family: 'Work Sans', sans-serif;
     border-radius: 5px;
+    
+}
+
+.right{
+    align-self: center;
 }
