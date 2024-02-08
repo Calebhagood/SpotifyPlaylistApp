@@ -1,0 +1,31 @@
+.trackContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.title{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.artist{
+    font-family: 'Work Sans', sans-serif;
+}
+
+.button{
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+    background: black;
+    color: white;
+    border: 1px solid white;
+    font-weight: 700;
+    font-family: 'Work Sans', sans-serif;
+    border-radius: 5px;
+}

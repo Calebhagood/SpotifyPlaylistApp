@@ -1,15 +1,16 @@
 import React from "react";
+import styles from './Track.module.css';
 
 
 function Track() {
     return (
-        <div>
+        <div className={styles.trackContainer}>
             <div className="left">
-                <p className="songTitle">Tale of 2 Citiez</p>
-                <p className="artist">J. Cole</p>
+                <p className={styles.title}>Tale of 2 Citiez</p>
+                <p className={styles.artist}>J. Cole</p>
             </div>
             <div className="right">
-                <button className="addToPlaylist">+</button>
+                <button className={styles.button}>+</button>
             </div>
         </div>
     )

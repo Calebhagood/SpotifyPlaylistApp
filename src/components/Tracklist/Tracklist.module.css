@@ -1,0 +1,29 @@
+::-webkit-scrollbar{
+    width: .25em;
+}
+
+::-webkit-scrollbar-track{
+    background: none;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb{
+    background: none;
+    border-radius: 100vw;
+    
+}
+
+
+
+.tracklist {
+    height: 40vh;
+    overflow: auto;
+    padding-right: 5px;
+    
+}
+
+.tracklist:hover{
+    &::-webkit-scrollbar-thumb{
+        background: #292929;
+    }
+}

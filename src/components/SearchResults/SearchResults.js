@@ -1,12 +1,15 @@
 import React from "react";
 import Tracklist from "../Tracklist/Tracklist";
+import styles from './SearchResults.module.css';
 
 
 function SearchResults(){
     return (
-        <div>
-            <h3>Results</h3>
-            <Tracklist />
+        <div className={styles.resultsContainer}>
+            <h3 className={styles.resultsHeader}>Results</h3>
+            <div className={styles.tracklist}>
+                <Tracklist />
+            </div>
         </div>
     )
 }

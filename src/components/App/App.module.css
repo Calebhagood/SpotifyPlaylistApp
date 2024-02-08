@@ -1,0 +1,40 @@
+.container{
+  background: url(../../images/JammmingGradient.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.header{
+  text-align: center;
+  font-family: 'Shrikhand', serif;
+  font-size: 20px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 85px;
+  
+}
+
+.purpleLetters{
+  color: rgb(129, 11, 207);
+}
+
+.resultsSection{
+  display: flex;
+  justify-content: space-evenly;
+
+}
