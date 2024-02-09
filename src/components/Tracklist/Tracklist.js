@@ -4,7 +4,6 @@ import styles from './Tracklist.module.css';
 
 
 function Tracklist(props) {
-    console.log(typeof props.userSearchResults);
 
     return (
         <div>
@@ -15,6 +14,9 @@ function Tracklist(props) {
                     <Track
                     track={track}
                     key={track.id}
+                    onAdd={props.onAdd}
+                    isRemoval={props.isRemoval}
+                    onRemove={props.onRemove}
                     />
                 )) : console.log('error')}
             </div>

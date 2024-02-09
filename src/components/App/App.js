@@ -6,7 +6,7 @@ import styles from './App.module.css';
 
 
 function App(){
-
+    //stateful variables for search results
     const [searchResults, setSearchResults] = useState([
         {
             name: 'Tale of 2 Citiez',
@@ -42,13 +42,60 @@ function App(){
             name: 'First Person Shooter',
             artist: 'Drake',
             album: 'For All The Dogs',
-            id: 5,
+            id: 6,
         },
     ] );
+    //stateful variables for playlist names and tracks
+    const [playlistName, setPlaylistName] = useState('Example Playlist 1')
+    const [playlistTracks, setPlaylistTracks] = useState([
+        {
+            name: 'Example Playlist',
+            artist: 'Example Playlist Artist',
+            album: 'Example Playlist Album',
+            id: 7,
+        },
+        {
+            name: 'Example Playlist',
+            artist: 'Example Playlist Artist',
+            album: 'Example Playlist Album',
+            id: 8,
+        },
+        {
+            name: 'Example Playlist',
+            artist: 'Example Playlist Artist',
+            album: 'Example Playlist Album',
+            id: 9,
+        },
+    ])
+    //method that adds tracks to playlist
+    const addTrack = (track) => {
+        const existingTrack = playlistTracks.find((t) => t.id === track.id);
+        const newTrack = playlistTracks.concat(track); 
 
-    
+        //if statement to determine whether existing tracks is true, if not track will be added
+        if (existingTrack){
+            console.log('track already exists in playlist');
+        } else {
+            setPlaylistTracks(newTrack);
+        }
+    }
 
-    console.log(typeof searchResults);
+    const removeTrack = (track) => {
+        const existingTrack = playlistTracks.filter((t) => t.id !== track.id);
+        setPlaylistTracks(existingTrack)
+    }
+
+    const updatePlaylistName = (name) => {
+        setPlaylistName(name);
+    }
+
+    const savePlaylist = () => {
+        const trackURIs = playlistTracks.map((t) => t.uri)
+    }
+
+    const search = (arg) => {
+        console.log(arg);
+    }
 
     return (
             <div className={styles.container}>
@@ -58,16 +105,22 @@ function App(){
                     </div>
                     <div id="searchBar">
                         {/*Search Bar Component here*/}
-                        <SearchBar />
+                        <SearchBar onSearch={search} />
                     </div>
                     <div className={styles.resultsSection} id="resultsSection">
                         <div id="results">
                             {/*results for trackList and tracks components here*/}
-                            <SearchResults userSearchResults={searchResults} />
+                            <SearchResults userSearchResults={searchResults} onAdd={addTrack} />
                         </div>
                         <div id="playlist">
                             {/*playlist component here*/}
-                            <Playlist />
+                            <Playlist 
+                                playlistName={playlistName} 
+                                playlistTracks={playlistTracks} 
+                                onRemove={removeTrack} 
+                                onChange={updatePlaylistName} 
+                                onSave={savePlaylist} 
+                            />
                         </div>
                     </div>
                 </div>
