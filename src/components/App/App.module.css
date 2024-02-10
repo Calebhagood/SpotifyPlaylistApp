@@ -5,6 +5,7 @@
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
+  min-width: 710px;
 }
 
 .overlay{
@@ -36,5 +37,5 @@
 .resultsSection{
   display: flex;
   justify-content: space-evenly;
-
+  min-width: 720px;
 }

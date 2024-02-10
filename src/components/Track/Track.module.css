@@ -5,13 +5,16 @@
     padding-top: 10px;
     border-bottom: 1px solid gray;
     margin-left: 10px;
+    height: 20%;
+    max-height: 20%;
 }
 
 .title{
     font-family: 'Work Sans', sans-serif;
     font-size: 20px;
     font-weight: 700;
-    line-height: 30px;
+    /*line-height: 30px;*/
+    padding-bottom: 5px;
 }
 
 .artist, .album{
@@ -37,5 +40,24 @@
 }
 
 .right{
+    align-self: center;
+}
+
+.left{
+    display: flex;
+    gap: 5px;
+}
+
+.leftContent{
+    width: 75%;
+    
+}
+
+.image{
+    width: 70px;
+    height: 70px;
+}
+
+.imageContainer{
     align-self: center;
 }

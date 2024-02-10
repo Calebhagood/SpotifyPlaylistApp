@@ -20,12 +20,21 @@ function Track(props) {
         props.onRemove(props.track)
     }
 
+    const truncate = (input, num) => {
+        return input.substring(0, num) + '...';
+    }
+
     return (
         <div className={styles.trackContainer}>
-            <div className="left">
-                <p className={styles.title}>{props.track.name}</p>
-                <p className={styles.artist}>{props.track.artist}</p>
-                <p className={styles.album}>{props.track.album}</p>
+            <div className={styles.left}>
+                <div className={styles.imageContainer}>
+                    <img className={styles.image} src={props.track.image} alt="Track cover art" />
+                </div>
+                <div className={styles.leftContent}>
+                    <p className={styles.title}>{props.track.name.length > 20 ? truncate(props.track.name, 20) : props.track.name}</p>
+                    <p className={styles.artist}>{props.track.artist}</p>
+                    <p className={styles.album}>{props.track.album.length > 30 ? truncate(props.track.album, 30) : props.track.album}</p>
+                </div>
             </div>
             <div className={styles.right}>
                 {/* calls render buttons function to display buttons as + or - */}

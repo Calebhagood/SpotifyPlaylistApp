@@ -1,72 +1,81 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
+import {Spotify} from '../../util/Spotify/Spotify';
 
 
 function App(){
     //stateful variables for search results
-    const [searchResults, setSearchResults] = useState([
-        {
-            name: 'Tale of 2 Citiez',
-            artist: 'J. Cole',
-            album: '2014 Forest Hills Drive',
-            id: 1,
-        },
-        {
-            name: 'Wet Dreamz',
-            artist: 'J. Cole',
-            album: '2014 Forest Hills Drive',
-            id: 2,
-        },
-        {
-            name: 'You Broke My Heart',
-            artist: 'Drake',
-            album: 'Scary Hours 3',
-            id: 3,
-        },
-        {
-            name: 'Show Me Love',
-            artist: 'Alicia Keys',
-            album: 'ALICIA',
-            id: 4,
-        },
-        {
-            name: 'Another Heartbreak',
-            artist: 'GIVEON',
-            album: 'Give Or Take',
-            id: 5,
-        },
-        {
-            name: 'First Person Shooter',
-            artist: 'Drake',
-            album: 'For All The Dogs',
-            id: 6,
-        },
-    ] );
+    const [searchResults, setSearchResults] = useState([]);
     //stateful variables for playlist names and tracks
     const [playlistName, setPlaylistName] = useState('Example Playlist 1')
     const [playlistTracks, setPlaylistTracks] = useState([
-        {
-            name: 'Example Playlist',
-            artist: 'Example Playlist Artist',
-            album: 'Example Playlist Album',
-            id: 7,
-        },
-        {
-            name: 'Example Playlist',
-            artist: 'Example Playlist Artist',
-            album: 'Example Playlist Album',
-            id: 8,
-        },
-        {
-            name: 'Example Playlist',
-            artist: 'Example Playlist Artist',
-            album: 'Example Playlist Album',
-            id: 9,
-        },
+        // {
+        //     name: 'Example Playlist',
+        //     artist: 'Example Playlist Artist',
+        //     album: 'Example Playlist Album',
+        //     id: 7,
+        // },
+        // {
+        //     name: 'Example Playlist',
+        //     artist: 'Example Playlist Artist',
+        //     album: 'Example Playlist Album',
+        //     id: 8,
+        // },
+        // {
+        //     name: 'Example Playlist',
+        //     artist: 'Example Playlist Artist',
+        //     album: 'Example Playlist Album',
+        //     id: 9,
+        // },
     ])
+    const [searchInput, setSearchInput] = useState('');
+    const [accessToken, setAccessToken] = useState('');
+
+    const clientID = 'c032555bf9bd44b48770bd4427d3207f';
+    const clientSecret = 'c548a428894448d5beee0c6b1f9b2f2e'
+    useEffect(() => {
+        const authParameters ={
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `grant_type=client_credentials&client_id=${clientID}&client_secret=${clientSecret}`
+        }
+        fetch('https://accounts.spotify.com/api/token', authParameters)
+            .then(result => result.json())
+            .then(data => setAccessToken(data.access_token))
+    }, []);
+
+    async function search() {
+        console.log(`Search for ${searchInput}`)
+        const searchParameters = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${accessToken}`
+            },
+        }
+        const trackSearch = await fetch(`https://api.spotify.com/v1/search?type=track&limit=50&market=US&q=${searchInput}`, searchParameters )
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setSearchResults(data.tracks.items.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    artist: t.artists[0].name,
+                    album: t.album.name,
+                    image: t.album.images[0].url,
+                    'preview_url': t.preview_url,
+                    uri: t.uri,
+                })))
+            })
+        console.log(trackSearch)
+    }
+
+    
     //method that adds tracks to playlist
     const addTrack = (track) => {
         const existingTrack = playlistTracks.find((t) => t.id === track.id);
@@ -93,9 +102,10 @@ function App(){
         const trackURIs = playlistTracks.map((t) => t.uri)
     }
 
-    const search = (arg) => {
-        console.log(arg);
-    }
+    // function search(term) {
+    //     Spotify.search(term).then((result) => setSearchResults(result));
+    //     console.log(term);
+    // }
 
     return (
             <div className={styles.container}>
@@ -105,7 +115,15 @@ function App(){
                     </div>
                     <div id="searchBar">
                         {/*Search Bar Component here*/}
-                        <SearchBar onSearch={search} />
+                        <SearchBar 
+                            onSearch={search} 
+                            // onKeyDown={event => {
+                            //     if (event.key == "Enter"){
+                            //         search();
+                            //     }
+                            // }}
+                            onChange={event => setSearchInput(event.target.value)}
+                        />
                     </div>
                     <div className={styles.resultsSection} id="resultsSection">
                         <div id="results">
