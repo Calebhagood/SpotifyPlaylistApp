@@ -6,6 +6,7 @@
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  min-height: 100vh;
   min-width: 710px;
 }
 
@@ -50,5 +51,12 @@
 
   .resultsSection{
     min-width: 100vw;
+  }
+
+  .header{
+    height: 3vh;
+    font-size: 10px;
+    padding-top: 1px;
+    margin-top: 0px;
   }
 }
