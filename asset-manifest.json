@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/SpotifyPlaylistApp/static/css/main.a0d5c800.css",
+    "main.js": "/SpotifyPlaylistApp/static/js/main.0f40f54d.js",
+    "static/js/592.d92b5da6.chunk.js": "/SpotifyPlaylistApp/static/js/592.d92b5da6.chunk.js",
+    "static/media/JammmingGradient.jpg": "/SpotifyPlaylistApp/static/media/JammmingGradient.e7a164659a414babe7d3.jpg",
+    "index.html": "/SpotifyPlaylistApp/index.html",
+    "main.a0d5c800.css.map": "/SpotifyPlaylistApp/static/css/main.a0d5c800.css.map",
+    "main.0f40f54d.js.map": "/SpotifyPlaylistApp/static/js/main.0f40f54d.js.map",
+    "592.d92b5da6.chunk.js.map": "/SpotifyPlaylistApp/static/js/592.d92b5da6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0d5c800.css",
+    "static/js/main.0f40f54d.js"
+  ]
+}
