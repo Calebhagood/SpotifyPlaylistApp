@@ -1,7 +1,7 @@
 let accessToken = "";
 const clientID = "c032555bf9bd44b48770bd4427d3207f";
-const redirectUrl = "http://localhost:3000";
-// const redirectUrl = "https://calebsjammmingproject.surge.sh"
+//const redirectUrl = "http://localhost:3000";
+const redirectUrl = "https://calebhagood.github.io/SpotifyPlaylistApp/"
 
 const Spotify = {
   getAccessToken() {
