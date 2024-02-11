@@ -15,11 +15,21 @@
     font-size: 24px;
     font-weight: 700;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .tracklist{
-    
     margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .resultsContainer{
+        min-width: 48vw;
+    }
+
+    .resultsHeader{
+        font-size: 16px;
+    }
 }

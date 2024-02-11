@@ -61,3 +61,27 @@
 .imageContainer{
     align-self: center;
 }
+
+@media only screen and (max-width: 480px) {
+    .image{
+        width: 40px;
+        height: 40px;
+    }
+
+    .title{
+        font-size: 14px;
+    }
+
+    .button{
+        height: 25px;
+        width: 25px;
+    }
+
+    .artist, .album{
+        font-size: 12px;
+    }
+
+    .leftContent{
+        align-self: center;
+    }
+}

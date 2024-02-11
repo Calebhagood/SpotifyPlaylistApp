@@ -35,3 +35,17 @@
     display: flex;
     gap: 20px;
 }
+
+@media only screen and (max-width: 480px) {
+
+    .heroText{
+        font-size: 35px;
+    }
+
+    .searchBar{
+        width: 50vw;
+        font-size: 16px;
+    }
+
+    
+}
