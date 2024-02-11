@@ -29,9 +29,9 @@ const Spotify = {
     window.location = redirect;
   },
 
-  search(term) {
+  search(arg) {
     accessToken = Spotify.getAccessToken();
-    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}&limit=50`, {
+    return fetch(`https://api.spotify.com/v1/search?type=track&q=${arg}&limit=50`, {
       method: "GET",
       headers: { Authorization: `Bearer ${accessToken}` },
     })

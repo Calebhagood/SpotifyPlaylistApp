@@ -28,6 +28,11 @@
     
 }
 
+.playlistName:focus{
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
 .playlistNameContainer{
     display: flex;
     justify-items: center;
